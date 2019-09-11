@@ -1,0 +1,13 @@
+resources:
+  database:
+    type: postgres
+    options:
+      storage: 1
+services:
+  app:
+    build: .
+    scale:
+      count: 0
+    resources:
+      - database
+
