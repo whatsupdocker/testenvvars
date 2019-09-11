@@ -2,7 +2,7 @@ resources:
   database:
     type: postgres
     options:
-      storage: 1
+      storage: 10
 services:
   app:
     build: .
