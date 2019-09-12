@@ -10,4 +10,5 @@ services:
       count: 0
     resources:
       - database
+    test: run.sh
 
