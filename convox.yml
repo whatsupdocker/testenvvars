@@ -16,10 +16,15 @@ services:
     build: .
     scale:
       count: 0
+    links:
+      - app2
     resources:
       - database
       - redis
       - memcached
       - mysql
     test: ./run.sh
+  app2:
+    build: .
+    port: 9000
 
