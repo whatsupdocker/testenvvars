@@ -3,6 +3,14 @@ resources:
     type: postgres
     options:
       storage: 10
+  redis:
+    type: redis
+  memcached:
+    type: memcached
+  mysql:
+    type: mysql
+    options:
+      storage: 10
 services:
   app:
     build: .
@@ -10,5 +18,8 @@ services:
       count: 0
     resources:
       - database
+      - redis
+      - memcached
+      - mysql
     test: ./run.sh
 
