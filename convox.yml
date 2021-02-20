@@ -2,12 +2,29 @@ resources:
   database:
     type: postgres
     options:
-      storage: 1
+      storage: 10
+  redis:
+    type: redis
+  memcached:
+    type: memcached
+  mysql:
+    type: mysql
+    options:
+      storage: 10
 services:
   app:
     build: .
     scale:
       count: 0
+    links:
+      - app2
     resources:
       - database
+      - redis
+      - memcached
+      - mysql
+    test: ./run.sh
+  app2:
+    build: .
+    port: 9000
 
